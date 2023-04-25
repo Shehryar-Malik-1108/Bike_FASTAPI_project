@@ -77,7 +77,7 @@ class MyDatabase:
             return {"message": "Bikes deleted"}
         return {"message": "error occurred while deleting bikes."}
 
-    def delete_many_bikes(self,bikes: list[int]):
+    def delete_many_bikes(self, bikes: list[int]):
         col = self.db.get_collection("bikes")
         result = col.delete_many({"id": {"$in": bikes}})
         if result.deleted_count > 0:
